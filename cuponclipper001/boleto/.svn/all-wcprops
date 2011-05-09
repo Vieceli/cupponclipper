@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/cuponclipper001/!svn/ver/25/cuponclipper001/cuponclipper001/boleto
+END
+util.py
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/cuponclipper001/!svn/ver/25/cuponclipper001/cuponclipper001/boleto/util.py
+END
+views.py
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/cuponclipper001/!svn/ver/25/cuponclipper001/cuponclipper001/boleto/views.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/cuponclipper001/!svn/ver/25/cuponclipper001/cuponclipper001/boleto/__init__.py
+END
+tests.py
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/cuponclipper001/!svn/ver/25/cuponclipper001/cuponclipper001/boleto/tests.py
+END
+models.py
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/cuponclipper001/!svn/ver/25/cuponclipper001/cuponclipper001/boleto/models.py
+END
+bancos.py
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/cuponclipper001/!svn/ver/25/cuponclipper001/cuponclipper001/boleto/bancos.py
+END
+urls.py
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/cuponclipper001/!svn/ver/25/cuponclipper001/cuponclipper001/boleto/urls.py
+END

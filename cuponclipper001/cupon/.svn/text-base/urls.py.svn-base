@@ -15,7 +15,10 @@ urlpatterns = patterns('',
     
 #    url(r'^(?P<cidade_slug>\w+)/(?P<cupon_slug>[-\w]+)/(?P<quantidade>\d+)/checkout/completo/$',
 #        'engine.views.oferta_checkout_complete', name='oferta_checkout_complete'),
-                                     
+    #BOLETO
+   url(r'^(?P<cidade_slug>\w+)/(?P<cupon_slug>[-\w]+)/comprar/$',
+        'cuponclipper001.boleto.views.boleto_bb', name='boleto_bb'),
+    #CARTAO            
     url(r'^(?P<cidade_slug>\w+)/(?P<cupon_slug>[-\w]+)/comprar/$',
         'cuponclipper001.cupon.views.cupon_checkout', name='cupon_checkout'),
 )

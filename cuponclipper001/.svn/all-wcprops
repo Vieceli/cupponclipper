@@ -43,11 +43,17 @@ settings.py
 K 25
 svn:wc:ra_dav:version-url
 V 76
-/svn/cuponclipper001/!svn/ver/21/cuponclipper001/cuponclipper001/settings.py
+/svn/cuponclipper001/!svn/ver/25/cuponclipper001/cuponclipper001/settings.py
 END
 urls.py
 K 25
 svn:wc:ra_dav:version-url
 V 72
-/svn/cuponclipper001/!svn/ver/21/cuponclipper001/cuponclipper001/urls.py
+/svn/cuponclipper001/!svn/ver/25/cuponclipper001/cuponclipper001/urls.py
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/cuponclipper001/!svn/ver/25/cuponclipper001/cuponclipper001/README
 END

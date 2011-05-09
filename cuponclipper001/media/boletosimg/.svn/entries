@@ -1,15 +1,15 @@
 10
 
 dir
-0
+25
 https://subversion.assembla.com/svn/cuponclipper001/cuponclipper001/cuponclipper001/media/boletosimg
 https://subversion.assembla.com/svn/cuponclipper001
-add
 
 
 
-
-
+2011-05-09T20:11:44.962121Z
+25
+clipper
 
 
 
@@ -26,353 +26,853 @@ add
 
 9c9c5fff-0464-45e2-99e1-e1caeeb28684
 
-logosantander.jpg
-file
-
-
-
-add
-
-
-
-
-
-has-props
-has-prop-mods
-
 logohsbc.jpg
 file
 
 
 
-add
 
-
-
-
-
+2011-05-09T16:07:37.991136Z
+d5f73a8c016caafe2b6da56fa64cd125
+2011-05-09T20:11:44.962121Z
+25
+clipper
 has-props
-has-prop-mods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4543
 
-logobradesco.jpg
+logosantander.jpg
 file
 
 
 
-add
 
-
-
-
-
+2011-05-09T16:07:37.993135Z
+e2aa97c82240dba62a6b3805305b99d1
+2011-05-09T20:11:44.962121Z
+25
+clipper
 has-props
-has-prop-mods
-
-logosicredi.jpg
-file
-
-
-
-add
 
 
 
 
 
-has-props
-has-prop-mods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7998
 
 p.png
 file
 
 
 
-add
 
-
-
-
-
+2011-05-09T16:07:37.994136Z
+580599dc1b24a2c165fdea115a7bb566
+2011-05-09T20:11:44.962121Z
+25
+clipper
 has-props
-has-prop-mods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+84
 
-1.png
+logosicredi.jpg
 file
 
 
 
-add
 
-
-
-
-
+2011-05-09T16:07:37.990136Z
+ef0affdb0dd148e86fa726bfa0722348
+2011-05-09T20:11:44.962121Z
+25
+clipper
 has-props
-has-prop-mods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3357
 
-logoreal.jpg
+logobradesco.jpg
 file
 
 
 
-add
 
-
-
-
-
+2011-05-09T16:07:37.995135Z
+2cb3885e25e8cf7f715292fd0efe02d5
+2011-05-09T20:11:44.962121Z
+25
+clipper
 has-props
-has-prop-mods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4007
 
 logobb.jpg
 file
 
 
 
-add
 
-
-
-
-
+2011-05-09T16:07:37.991136Z
+1b83c863729121325d8d08ad2fcd3f0a
+2011-05-09T20:11:44.962121Z
+25
+clipper
 has-props
-has-prop-mods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2877
+
+logoreal.jpg
+file
+
+
+
+
+2011-05-09T16:07:37.993135Z
+4fafdc012bff6500f8253596689b3498
+2011-05-09T20:11:44.962121Z
+25
+clipper
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3154
+
+1.png
+file
+
+
+
+
+2011-05-09T16:07:37.988133Z
+35431737cc2b564f99359297e77534e2
+2011-05-09T20:11:44.962121Z
+25
+clipper
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+84
 
 2.png
 file
 
 
 
-add
 
-
-
-
-
+2011-05-09T16:07:37.995135Z
+b4d1fc0b0f6e4840295213e9cce3ce3e
+2011-05-09T20:11:44.962121Z
+25
+clipper
 has-props
-has-prop-mods
-
-imgbrrazu.png
-file
-
-
-
-add
 
 
 
 
 
-has-props
-has-prop-mods
-
-logocaixa.jpg
-file
-
-
-
-add
 
 
 
 
 
-has-props
-has-prop-mods
+
+
+
+
+
+
+
+
+
+
+82
 
 3.png
 file
 
 
 
-add
 
-
-
-
-
+2011-05-09T16:07:37.995135Z
+cc26d188f9b4b3d34067772efae40258
+2011-05-09T20:11:44.962121Z
+25
+clipper
 has-props
-has-prop-mods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+84
+
+logocaixa.jpg
+file
+
+
+
+
+2011-05-09T16:07:37.992136Z
+7843edd30f184172b736bd94e15a8253
+2011-05-09T20:11:44.962121Z
+25
+clipper
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3350
+
+imgbrrazu.png
+file
+
+
+
+
+2011-05-09T16:07:37.988133Z
+5f1d138a8921017477b8a4a3cffb6e09
+2011-05-09T20:11:44.962121Z
+25
+clipper
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+84
 
 6.png
 file
 
 
 
-add
 
-
-
-
-
+2011-05-09T16:07:37.989136Z
+76c9bfd564117e42b8015e3b53774761
+2011-05-09T20:11:44.962121Z
+25
+clipper
 has-props
-has-prop-mods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+82
 
 logonossacaixa.jpg
 file
 
 
 
-add
 
-
-
-
-
+2011-05-09T16:07:37.993135Z
+7b779fb496c6eb53818b0e3e122aff47
+2011-05-09T20:11:44.962121Z
+25
+clipper
 has-props
-has-prop-mods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2816
 
 logosudameris.jpg
 file
 
 
 
-add
 
-
-
-
-
+2011-05-09T16:07:37.995135Z
+911d87a90e039fc9fda24b5bf811a4dd
+2011-05-09T20:11:44.962121Z
+25
+clipper
 has-props
-has-prop-mods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2572
 
 logounibanco.jpg
 file
 
 
 
-add
 
-
-
-
-
+2011-05-09T16:07:37.990136Z
+607beadd538def2029e012df9de7f50b
+2011-05-09T20:11:44.962121Z
+25
+clipper
 has-props
-has-prop-mods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2197
 
 logo_empresa.png
 file
 
 
 
-add
 
-
-
-
-
+2011-05-09T16:07:37.992136Z
+4c12951be252024c329c5eb68936f183
+2011-05-09T20:11:44.962121Z
+25
+clipper
 has-props
-has-prop-mods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2164
 
 logoitau.jpg
 file
 
 
 
-add
 
-
-
-
-
+2011-05-09T16:07:37.991136Z
+81b5c130a1ae73f4f4b6c322649d116e
+2011-05-09T20:11:44.962121Z
+25
+clipper
 has-props
-has-prop-mods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2229
 
 imgpxlazu.png
 file
 
 
 
-add
 
-
-
-
-
+2011-05-09T16:07:37.996134Z
+9d4a91b742fdcba740ffda7be5a7ef5d
+2011-05-09T20:11:44.962121Z
+25
+clipper
 has-props
-has-prop-mods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+82
 
 logobancoob.jpg
 file
 
 
 
-add
 
-
-
-
-
+2011-05-09T16:07:37.990136Z
+b16e044dda83da2d443dc15500434863
+2011-05-09T20:11:44.962121Z
+25
+clipper
 has-props
-has-prop-mods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2569
 
 b.png
 file
 
 
 
-add
 
-
-
-
-
+2011-05-09T16:07:37.990136Z
+16a2421946ffcb0107e117fc582cbf3b
+2011-05-09T20:11:44.962121Z
+25
+clipper
 has-props
-has-prop-mods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+84
 
 logobanestes.jpg
 file
 
 
 
-add
 
-
-
-
-
+2011-05-09T16:07:37.991136Z
+947d9b5c3e776e8ab4ebdae0c153bb08
+2011-05-09T20:11:44.962121Z
+25
+clipper
 has-props
-has-prop-mods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2028
 
 logobanespa.jpg
 file
 
 
 
-add
 
-
-
-
-
+2011-05-09T16:07:37.992136Z
+945f4f70d395fe6afd2254448ae81ce7
+2011-05-09T20:11:44.962121Z
+25
+clipper
 has-props
-has-prop-mods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3460
 
 logobesc.jpg
 file
 
 
 
-add
 
-
-
-
-
+2011-05-09T16:07:37.996134Z
+6d91ce4a733f0450e6ead883435207b7
+2011-05-09T20:11:44.962121Z
+25
+clipper
 has-props
-has-prop-mods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4764
 
 imgbrrlrj.png
 file
 
 
 
-add
 
-
-
-
-
+2011-05-09T16:07:37.993135Z
+2bbc048a948538e910d90cb07172830c
+2011-05-09T20:11:44.962121Z
+25
+clipper
 has-props
-has-prop-mods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+84
 

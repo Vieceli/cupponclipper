@@ -1,15 +1,15 @@
 10
 
 dir
-0
+25
 https://subversion.assembla.com/svn/cuponclipper001/cuponclipper001/cuponclipper001/boleto
 https://subversion.assembla.com/svn/cuponclipper001
-add
 
 
 
-
-
+2011-05-09T20:11:44.962121Z
+25
+clipper
 
 
 
@@ -31,47 +31,236 @@ file
 
 
 
-add
+
+2011-05-09T19:23:42.658135Z
+318bdfcae335cc121933ece6731fe73c
+2011-05-09T20:11:44.962121Z
+25
+clipper
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+15331
 
 util.py
 file
 
 
 
-add
+
+2011-05-09T16:06:13.716134Z
+6c4e11f40f2daa1cece9ad7c2a17667a
+2011-05-09T20:11:44.962121Z
+25
+clipper
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5166
 
 __init__.py
 file
 
 
 
-add
+
+2011-05-09T16:06:13.713259Z
+81051bcc2cf1bedf378224b0a93e2877
+2011-05-09T20:11:44.962121Z
+25
+clipper
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2
 
 tests.py
 file
 
 
 
-add
+
+2011-05-09T16:05:55.072257Z
+1fde9e174e80f7680d95dc905a3533a3
+2011-05-09T20:11:44.962121Z
+25
+clipper
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+514
 
 models.py
 file
 
 
 
-add
+
+2011-05-09T16:06:13.715259Z
+d66d26e53e7ac2028454d3dd6f7e92ad
+2011-05-09T20:11:44.962121Z
+25
+clipper
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+60
 
 bancos.py
 file
 
 
 
-add
+
+2011-05-09T16:08:37.344134Z
+f5dbd63d5ee253cc66ae3179669b927e
+2011-05-09T20:11:44.962121Z
+25
+clipper
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+23494
 
 urls.py
 file
 
 
 
-add
+
+2011-05-09T19:10:19.786259Z
+88d939157e2e8ba27fc43fd902d09725
+2011-05-09T20:11:44.962121Z
+25
+clipper
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+145
 
