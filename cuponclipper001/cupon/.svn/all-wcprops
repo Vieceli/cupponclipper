@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/cuponclipper001/!svn/ver/20/cuponclipper001/cuponclipper001/cupon
+END
+admin.py
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/cuponclipper001/!svn/ver/23/cuponclipper001/cuponclipper001/cupon/admin.py
+END
+views.py
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/cuponclipper001/!svn/ver/24/cuponclipper001/cuponclipper001/cupon/views.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/cuponclipper001/!svn/ver/5/cuponclipper001/cuponclipper001/cupon/__init__.py
+END
+tests.py
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/cuponclipper001/!svn/ver/5/cuponclipper001/cuponclipper001/cupon/tests.py
+END
+tests_1.py
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/cuponclipper001/!svn/ver/21/cuponclipper001/cuponclipper001/cupon/tests_1.py
+END
+models.py
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/cuponclipper001/!svn/ver/22/cuponclipper001/cuponclipper001/cupon/models.py
+END
+urls.py
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/cuponclipper001/!svn/ver/23/cuponclipper001/cuponclipper001/cupon/urls.py
+END
+forms.py
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/cuponclipper001/!svn/ver/22/cuponclipper001/cuponclipper001/cupon/forms.py
+END
