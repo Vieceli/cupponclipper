@@ -1,0 +1,77 @@
+10
+
+dir
+0
+https://subversion.assembla.com/svn/cuponclipper001/cuponclipper001/cuponclipper001/boleto
+https://subversion.assembla.com/svn/cuponclipper001
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9c9c5fff-0464-45e2-99e1-e1caeeb28684
+
+views.py
+file
+
+
+
+add
+
+util.py
+file
+
+
+
+add
+
+__init__.py
+file
+
+
+
+add
+
+tests.py
+file
+
+
+
+add
+
+models.py
+file
+
+
+
+add
+
+bancos.py
+file
+
+
+
+add
+
+urls.py
+file
+
+
+
+add
+

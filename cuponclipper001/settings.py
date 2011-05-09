@@ -76,6 +76,8 @@ MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(PROJECT_ROOT_PATH, 'estatico')
 STATIC_URL = '/estatico/'
 
+DJBOLETO_MEDIA_URL = "/media/boletosimg/"
+
 GEOIP_PATH = os.path.join(PROJECT_ROOT_PATH, 'geoip')
 
 ADMIN_MEDIA_PREFIX = '/admin-media/'
@@ -121,6 +123,7 @@ INSTALLED_APPS = (
     'cupon',
     'contas',
     'checkout',
+    'boleto',
 )
 
 AUTHENTICATION_BACKENDS = (
