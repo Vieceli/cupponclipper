@@ -16,7 +16,10 @@ urlpatterns = patterns('',
 #    url(r'^(?P<cidade_slug>\w+)/(?P<cupon_slug>[-\w]+)/(?P<quantidade>\d+)/checkout/completo/$',
 #        'engine.views.oferta_checkout_complete', name='oferta_checkout_complete'),
     #BOLETO
-   url(r'^(?P<cidade_slug>\w+)/(?P<cupon_slug>[-\w]+)/comprar/$',
+   url(r'^(?P<cupon_slug>[-\w]+)/(?P<quantidade>\d+)/boleto/$',
+        'cuponclipper001.boleto.views.boleto_bb', name='boleto_bb'),
+                       
+   url(r'^(?P<cidade_slug>\w+)/(?P<cupon_slug>[-\w]+)/comprar/boleto/$',
         'cuponclipper001.boleto.views.boleto_bb', name='boleto_bb'),
     #CARTAO            
     url(r'^(?P<cidade_slug>\w+)/(?P<cupon_slug>[-\w]+)/comprar/$',

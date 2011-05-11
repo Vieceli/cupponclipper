@@ -19,7 +19,8 @@ def boleto_bb(request, cidade_slug, cupon_slug):
     cidade_cliente=_cidade_cliente(request)
             
     dados = dict()
-
+    
+    dados['usuario'] = usuario
     dados['nosso_numero'] = '87654'
     dados['numero_documento'] = '27.030195.10'
     
