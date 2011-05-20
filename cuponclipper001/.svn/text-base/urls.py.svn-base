@@ -20,7 +20,7 @@ urlpatterns = patterns('',
     (r'^conta/', include('contas.urls')),
     (r'^boleto/', include('boleto.urls')),#inseria midia propria -->url(r'imagem_barras/$', imagem_barras, name='imagem_barras'),
     (r'^conta/', include('django.contrib.auth.urls')),
-    url(r'imagem_barras/$', 'cuponclipper001.boleto.views.imagem_barras', name='imagem_barras'),
+
    
 )
 

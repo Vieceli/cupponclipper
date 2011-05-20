@@ -774,7 +774,12 @@ div.barcode {
             <p> teste<img src="{% url imagem_barras %}?codigo={{ codigobarra }}"/> </p>
 		</div>
 
-	
+    
+    {{ usuario }}
+    {{ cidade }}
+    {{ cidades_disponiveis }}
+	{{ cupons }}
+	{{ cidade_cliente }}
 	</div>
 
 </div>

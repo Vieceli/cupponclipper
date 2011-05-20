@@ -1,9 +1,10 @@
 # Create your views here.
 # -*- coding: utf-8 -*-
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404
 from cuponclipper001 import settings
 from django.shortcuts import get_object_or_404, render_to_response
-from cuponclipper001.cupon.models import Localizacao, Cupon
+from cuponclipper001.cupon.models import Localizacao, Cupon, Cupon_Adquirido,\
+    STATUS_EM_ESPERA
 from django.template.context import RequestContext
 #geoip
 from django.contrib.gis.utils import GeoIP
@@ -87,19 +88,18 @@ def cupon_detalhes(request, cidade_slug, cupon_slug):
     return render_to_response('oferta/oferta_detalhes.html', context)
 
 def cupon_checkout(request, cidade_slug, cupon_slug):
-   
+    usuario=request.user
     user_msg = ""
     try:
-        oferta = Cupon.objects.get(slug=cupon_slug)
+        cupon = Cupon.objects.get(slug=cupon_slug)
     except:
         return HttpResponseRedirect('/')
 
     must_login_error = False
     must_login_email = None
-    maximo = oferta.qtd_ofertas_por_pessoa # maxima quantidade para cada cliente
+    maximo = cupon.qtd_ofertas_por_pessoa # maxima quantidade para cada cliente
     maximo = list(range(1,maximo+1))       # transforma essa quantidade numa lista
     lista = [(str(i), i) for i in maximo]  # transforma numa lista de dicionarios
-    
     if request.method == 'POST': # If the form has been submitted...
         form = OfertaCheckoutForm(request.POST,lista=lista)
 
@@ -111,20 +111,19 @@ def cupon_checkout(request, cidade_slug, cupon_slug):
                 must_login_email = request.POST['email']
                 form = OfertaCheckoutForm(lista=lista)
                 user_msg = 'A conta existe: ' + user.email  + '. Efetue Login.'
-                usuario=request.user
+              
             except:
                 #return HttpResponseRedirect('/')
                 pass
                 
         else:
             user = request.user
-#Se native erro no formulario e o formulario for valido 
         #if not must_login_error and form.is_valid():
-        if form.is_valid():
+#        quantidade = request.POST.get('quantidade', '')
+#        print quantidade
+        if not must_login_error and form.is_valid():
             cd = form.cleaned_data
             if not request.user.is_authenticated():
-                # User in NOT Logged IN and doesn't exist
-                # setup a new user
                 cd = form.cleaned_data
                 username = request.POST.get('email', '')
                 password = request.POST.get('senha1', '')
@@ -135,6 +134,7 @@ def cupon_checkout(request, cidade_slug, cupon_slug):
                 user.last_name = request.POST.get('sobrenome', '')
                 user.cpf = request.POST.get('cpf', '')
                 user.telefone = request.POST.get('telefone', '')
+                
                 user.save()
                 form.envia_email() ################### enviar email 
                 if user is not None:
@@ -148,8 +148,9 @@ def cupon_checkout(request, cidade_slug, cupon_slug):
                     # Return an 'invalid login' error message.
                     pass
 
-            quantidade = int(cd.get('quantidade'))#pega o conteudo pelo nome do elemento dom
-            preco_total = quantidade * oferta.preco_oferta
+        quantidade = int(request.POST.get('quantidade', ''))#pega o conteudo pelo nome do elemento dom
+        print quantidade
+        preco_total = quantidade * cupon.valor_desconto
 
     else:
         form = OfertaCheckoutForm(lista=lista)
@@ -159,7 +160,7 @@ def cupon_checkout(request, cidade_slug, cupon_slug):
 
     return render_to_response('oferta/oferta_checkout.html', {
                 'form' : form,
-                'oferta' : oferta,
+                'cupon' : cupon,
                 'user_msg' : user_msg,
                 'must_login_error' : must_login_error,
                 'must_login_email' : must_login_email,
@@ -167,6 +168,50 @@ def cupon_checkout(request, cidade_slug, cupon_slug):
                 'usuario' : usuario,
               }, context_instance=RequestContext( request ) )
 
+def cupon_checkout_complete(request, cupon_slug, quantidade):
+
+    user_msg = ""
+    quantidade = int(quantidade)
+
+    try:
+        cupom = Cupon.objects.get(cupon_slug=cupon_slug)
+    except:
+        return Http404()
+
+    #cupom.qtd_ofertas_adquiridas+=quantidade
+
+      # check if it's sold out!
+    if cupom.qtd_ofertas_adquiridas >= cupom.qtd_ofertas_disponiveis:
+        print "oferta vendida"
+        #setup form error
+        # Sold out!
+
+
+        for i in range(quantidade):
+            cupon_adquirido = Cupon_Adquirido()
+            cupon_adquirido.user = request.user
+            cupon_adquirido.cupon = cupon_adquirido
+    
+            cupon_adquirido.status = STATUS_EM_ESPERA
+    
+            cupon_adquirido.save()
+            cupom.qtd_ofertas_adquiridas +=1
+            
+            cupon_adquirido.save()
+        # update the deal object 
+#        if not deal.is_deal_on and num_sold >= deal.tipping_point:
+#          deal.tipped_at = datetime.datetime.now()
+#          deal.is_deal_on = True
+#          deal.save()
+
+
+        user_msg = 'Thanks for purchasing a Massive Coupon! It will arrive in your profile within 24 hours'
+        return HttpResponseRedirect('/deals/groupon-clone/?user_msg=' + user_msg )
+#    else:
+#      return Http404()
+
+    else:
+        return Http404()
 
 def _cidade_cliente(request):
      #geo

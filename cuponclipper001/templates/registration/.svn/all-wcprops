@@ -27,6 +27,12 @@ svn:wc:ra_dav:version-url
 V 102
 /svn/cuponclipper001/!svn/ver/6/cuponclipper001/cuponclipper001/templates/registration/registrado.html
 END
+login_old.html
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/cuponclipper001/!svn/ver/26/cuponclipper001/cuponclipper001/templates/registration/login_old.html
+END
 password_reset_form.html
 K 25
 svn:wc:ra_dav:version-url

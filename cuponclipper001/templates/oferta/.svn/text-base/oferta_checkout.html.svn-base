@@ -218,17 +218,23 @@ div.error-msg {
         </div>
     {% endif %}
 
-
   <div class="clearfix">
     <div style="font-weight: bold; font-size: 120%; margin-bottom: 10px;">Informações Pessoais</div>
     <div class="user_left" style="width: 300px; float: left;">
-      <div class="field"><label>Nome completo:</label>{{ form.nome_completo }}<div class="error-msg">{% if form.errors.nome_completo %}Por favor coloque seu nome completo{% endif %}</div></div>
-
-      <div class="passwd_field"><span style="float:left; width: 140px;"><label style="display: block;">Senha:</label>{{ form.senha }}</span><span style="float:left;"><label style="display: block;">Senha (confirme):</label>{{ form.senha_verifica }}</span><div class="error-msg">{% if form.errors.senha_verifica %}{{ form.errors.senha_verifica }}{% endif %}</div></div>
-
+      <div class="field"><label>E-mail:</label>{{ form.email }}<div class="error-msg">{% if form.errors.email %}Por favor coloque seu e-mail completo{% endif %}</div></div>
+<br/>
+	  <div class="field"><label>Nome:</label>{{ form.nome }}<div class="error-msg">{% if form.errors.nome %}Por favor coloque seu nome{% endif %}</div></div>
+	 <br/> 
+	  <div class="field"><label>Sobrenome:</label>{{ form.sobrenome }}<div class="error-msg">{% if form.errors.sobrenome %}Por favor coloque seu sobrenome{% endif %}</div></div>
+<br/>
+      <div class="passwd_field"><span style="float:left; width: 140px;"><label style="display: block;">Senha:</label>{{ form.senha1 }}</span><span style="float:left;"><label style="display: block;">Senha (confirme):</label>{{ form.senha2 }}</span><div class="error-msg">{% if form.errors.senha2 %}{{ form.errors.senha2 }}{% endif %}</div></div>
+	<br/>	
       <div class="field"><label>Email:</label>{{ form.email }}<div class="error-msg">{% if form.errors.email %}Por favor coloque o email corretamente{% endif %}</div></div>
-
-	<div class="error-msg">{% if form.errors.email %}{{ form.errors.email }}Erro no campo de email{% endif %}</div>
+      	<br/>
+	  <div class="field"><label>CPF:</label>{{ form.cpf }}<div class="error-msg">{% if form.errors.cpf %}Por favor coloque seu cpf corretamente{% endif %}</div></div>
+	 <br/> 
+	  <div class="field"><label>Telefone:</label>{{ form.telefone }}<div class="error-msg">{% if form.errors.telefone %}Por favor coloque seu telefone corretamente{% endif %}</div></div>
+	  <br/>
     <div style="float: left; margin-top: 4px;"><input type="image" src="/media/images/btn_xpressCheckout.gif" value="Completar minha compra" alt="Completar minha compra" id="buy" onClick="submitForm(this.form);"/></div>
     </div>
 

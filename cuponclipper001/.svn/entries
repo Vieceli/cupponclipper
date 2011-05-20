@@ -26,6 +26,9 @@ clipper
 
 9c9c5fff-0464-45e2-99e1-e1caeeb28684
 
+media
+dir
+
 manage.py
 file
 
@@ -60,7 +63,10 @@ clipper
 
 546
 
-media
+boleto
+dir
+
+cupon
 dir
 
 views.py
@@ -97,11 +103,39 @@ has-props
 
 498
 
-cupon
-dir
-
-boleto
-dir
+SSLMiddleware.py
+file
+
+
+
+
+2011-05-05T19:26:01.476178Z
+60776c688a2c0c810b6ce67897cedc68
+2011-04-29T20:48:50.252966Z
+6
+clipper
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1661
 
 __init__.py
 file
@@ -137,39 +171,8 @@ clipper
 
 0
 
-SSLMiddleware.py
-file
-
-
-
-
-2011-05-05T19:26:01.476178Z
-60776c688a2c0c810b6ce67897cedc68
-2011-04-29T20:48:50.252966Z
-6
-clipper
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1661
+contas
+dir
 
 settings.py
 file
@@ -204,9 +207,6 @@ clipper
 
 
 4127
-
-contas
-dir
 
 README
 file
@@ -245,40 +245,6 @@ clipper
 templates
 dir
 
-local_settings.py
-file
-
-
-
-
-2011-05-05T19:26:01.475178Z
-0f1fd6ca8dc7d59699503f5832ac9ebc
-2011-04-28T17:57:11.451429Z
-4
-clipper
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-50
-
 backends.py
 file
 
@@ -313,25 +279,16 @@ has-props
 
 1069
 
-geoip
-dir
-
-checkout
-dir
-
-estatico
-dir
-
-urls.py
+local_settings.py
 file
-25
 
 
 
-2011-05-09T19:21:53.952134Z
-6e3215b134a98af7d7d05694f50b8101
-2011-05-09T20:11:44.962121Z
-25
+
+2011-05-05T19:26:01.475178Z
+0f1fd6ca8dc7d59699503f5832ac9ebc
+2011-04-28T17:57:11.451429Z
+4
 clipper
 
 
@@ -354,5 +311,48 @@ clipper
 
 
 
-1286
+50
+
+geoip
+dir
+
+checkout
+dir
+
+estatico
+dir
+
+urls.py
+file
+26
+
+
+
+2011-05-11T13:15:54.980819Z
+7957b7d098c3048c66a1d5ff3f659e49
+2011-05-11T18:38:38.903243Z
+26
+clipper
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1190
 

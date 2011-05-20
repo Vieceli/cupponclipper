@@ -6,7 +6,7 @@ PROJECT_ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
 #redirects
 DEFAULT_CITY_SLUG = 'cupons/goiania'
 LOGIN_URL = "/conta/login/"
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = ""
 AUTH_PROFILE_MODULE = 'contas.MeuUser'
 CUSTOM_USER_MODEL = 'contas.MeuUser'
 #extra configuracoes

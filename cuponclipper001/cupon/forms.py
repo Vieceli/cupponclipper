@@ -19,7 +19,13 @@ from django.core.mail import send_mail
 
 class MapForm(forms.Form):
     map = forms.Field(widget=GoogleMap(attrs={'width':410, 'height':410}))
+
+class FormBuscar(forms.Form):
+    query = forms.CharField(label=u'Procurar por: ',widget=forms.TextInput(attrs={'size': 32}))
     
+class FormCadEmail(forms.Form):
+    email = forms.EmailField(label=u'Digite o email: ',widget=forms.TextInput(attrs={'size': 32}))
+ 
 class OfertaCheckoutForm(forms.Form):
     nome = forms.CharField(label=u'Nome')
     sobrenome = forms.CharField(label=u'Sobrenome')

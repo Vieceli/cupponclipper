@@ -115,6 +115,34 @@ div.error-msg {
       $.Watermark.HideAll();
     } -->
  */
+ function mostra_login(){
+  		 $('#login').load('/conta/login/', function(resp){
+  		 		$('#right').html(resp);
+  		} );
+  		};
+  		
+  	function aplicar_eventos() {
+                $('#loginform').submit(function(){
+                    var url = $(this).attr('action');
+                    var inputs = $(this).find(':input');
+                    var params = {};
+
+                    for (var i=0; i<inputs.length; i++) {
+                        var chave = $(inputs[i]).attr('name');
+                        var valor = $(inputs[i]).val();
+                        params[chave] = valor;
+                        //params[$(inputs[i]).attr('name')] = $(inputs[i]).val();
+                    }
+                    //envia para o o servidor pega minha url, mais os elementos do form. depois de enviando os dados e recebido um ok ele executa a funcao 
+                    $.post(url, params, function(resp){
+                        $('#login').html(resp);
+                        aplicar_eventos();
+                        });
+
+                    return false;
+                });
+            }
+  	
     $(document).ready(function(){
     
     
@@ -129,14 +157,25 @@ div.error-msg {
       {% for f in form %}
       {% if f.help_text %}showHint('#{{ f.auto_id }}', '{{ f.help_text }}');{% endif %}
       {% endfor %} -->
+      
+       */
+        $(document).ajaxError(function(resp, xhr, settings){
+        			alert('Teste!');
+                    if (settings.url == '/conta/login/') {
+                        alert('Voce logou!');
+                        $('#login').find('form').fadeOut();
+                        $('#login').html('Você está logado!');
+                    }
+                });
+                
+                //ele pega o resultado da view e coloca dentro de div
+                $.get('/conta/login/', function(resp){
+                    $('#login').html(resp);
+                    aplicar_eventos();
+                });
 
- */
+
   });
-  	function mostra_login(){
-  		 $('#login').load('/conta/login/', function(resp){
-  		 		$('#right').html(resp);
-  		} );
-  		};
   	
  
 
@@ -280,7 +319,7 @@ div.error-msg {
 
 </div>
 {% endcomment %}
-  <input type="submit"  value="Finalizar Minha compra" alt="Finalizar Minha compra" id="buy" onClick="submitForm(this.form);" name="finaliza_compra"/>
+  <input type="submit"  value="Finalizar Minha compra" alt="Finalizar Minha compra" id="buy"  name="finaliza_compra"/>
   <a style="margin-left: 80px;" href="http://www.massivecoupon.com/">Não Obrigado.</a>
 
 

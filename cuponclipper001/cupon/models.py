@@ -253,6 +253,14 @@ class Cupon_Adquirido(models.Model):
 
     def __unicode__(self):
         return str(self.usuario)
+    
+class Cadastra_Email(models.Model):
+    class Meta:
+        db_table = 'emails'
+        verbose_name = _('Email Cadastrado')
+        verbose_name_plural = _('Emails Cadastrados')
+    
+    email           = models.EmailField(blank=True, help_text="Digite seu e-mail",default='Digite seu e-mail')
 
 # SIGNALS
 #from django.db.models import signals
