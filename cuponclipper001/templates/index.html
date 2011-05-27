@@ -19,6 +19,19 @@
 {% endblock extrajs %}
 
 {% block conteudo %}
+
+	{% if email_cadastrado %}
+		Email cadastrado com sucesso
+	{% else %}
+		<div id="email" >
+					<form id="email-form" method="POST" action=".">{% csrf_token %} 
+						{{ form_email }}
+						<input type="submit" value="Cadastrar" />
+					</form>
+				</div>
+		
+				
+	{% endif %}
 <div id="conteudo" class="conteudo">
 		{% if usuario.username %}
 			<p>Bem Vindo {{ usuario.username  }}!</p>

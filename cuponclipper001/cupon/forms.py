@@ -15,6 +15,7 @@ from cuponclipper001.contas import campo_personalizado
 from cuponclipper001.contas.models import MeuUser
 from django.core.exceptions import MultipleObjectsReturned
 from django.core.mail import send_mail
+from cuponclipper001.cupon.models import Cadastra_Email
 #from massive002.engine import models as enginemodels
 
 class MapForm(forms.Form):
@@ -25,7 +26,15 @@ class FormBuscar(forms.Form):
     
 class FormCadEmail(forms.Form):
     email = forms.EmailField(label=u'Digite o email: ',widget=forms.TextInput(attrs={'size': 32}))
- 
+    
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        try:
+            Cadastra_Email.objects.get(email=email)
+        except Cadastra_Email.DoesNotExist:
+            return email
+        raise forms.ValidationError('Email ja cadastrado')
+    
 class OfertaCheckoutForm(forms.Form):
     nome = forms.CharField(label=u'Nome')
     sobrenome = forms.CharField(label=u'Sobrenome')

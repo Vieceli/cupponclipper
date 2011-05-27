@@ -13,7 +13,7 @@ views.py
 K 25
 svn:wc:ra_dav:version-url
 V 79
-/svn/cuponclipper001/!svn/ver/26/cuponclipper001/cuponclipper001/cupon/views.py
+/svn/cuponclipper001/!svn/ver/27/cuponclipper001/cuponclipper001/cupon/views.py
 END
 __init__.py
 K 25
@@ -37,7 +37,7 @@ models.py
 K 25
 svn:wc:ra_dav:version-url
 V 80
-/svn/cuponclipper001/!svn/ver/22/cuponclipper001/cuponclipper001/cupon/models.py
+/svn/cuponclipper001/!svn/ver/27/cuponclipper001/cuponclipper001/cupon/models.py
 END
 urls.py
 K 25
@@ -49,5 +49,5 @@ forms.py
 K 25
 svn:wc:ra_dav:version-url
 V 79
-/svn/cuponclipper001/!svn/ver/26/cuponclipper001/cuponclipper001/cupon/forms.py
+/svn/cuponclipper001/!svn/ver/27/cuponclipper001/cuponclipper001/cupon/forms.py
 END

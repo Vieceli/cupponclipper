@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from cuponclipper001.contas.models import MeuUser
 
 from django.contrib.auth.admin import UserAdmin
+from cuponclipper001.cupon.models import Cadastra_Email
 
 class AnuncianteAdmin(admin.ModelAdmin):
     """admin class"""
@@ -47,13 +48,16 @@ admin.site.unregister(User)
 
 class CustomUserAdmin(admin.ModelAdmin):
     """ka"""
-    #list_display = ['email','first_name', 'last_name', 'cpf', 'telefone']
+    list_display = ['email','first_name', 'last_name', 'cpf', 'telefone']
     
+class Cadastra_Email_Admin(admin.ModelAdmin):
+    """ka"""
+    list_display = ['email','cidade']
 
 
+
+admin.site.register(Cadastra_Email, Cadastra_Email_Admin)
 admin.site.register(MeuUser, CustomUserAdmin)
-
-
 admin.site.register(Categoria, CategoriaAdmin)
 admin.site.register(Cupon, CuponAdmin)
 admin.site.register(Cupon_Adquirido, CuponAdquiridoAdmin)

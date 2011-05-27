@@ -10,6 +10,9 @@ urlpatterns = patterns('',
   
     
     url(r'^(?P<cidade_slug>\w+)/$', 'cuponclipper001.cupon.views.cidade_index', name='cidade_index'),
+    
+    url(r'^(?P<cidade_slug>\w+)/buscar/$', 'cuponclipper001.cupon.views.buscar', name='buscar'),
+    
     url(r'^(?P<cidade_slug>\w+)/(?P<cupon_slug>[-\w]+)/$', 'cuponclipper001.cupon.views.cupon_detalhes',
         name='cupon_detalhes'),
     

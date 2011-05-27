@@ -260,7 +260,8 @@ class Cadastra_Email(models.Model):
         verbose_name = _('Email Cadastrado')
         verbose_name_plural = _('Emails Cadastrados')
     
-    email           = models.EmailField(blank=True, help_text="Digite seu e-mail",default='Digite seu e-mail')
+    email           = models.EmailField(blank=True, help_text="Digite seu e-mail",default='Digite seu e-mail',unique=True)
+    cidade          = models.CharField("Cidade", max_length=255, help_text=u'Cidade',default='Cidade')
 
 # SIGNALS
 #from django.db.models import signals

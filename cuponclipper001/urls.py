@@ -20,8 +20,7 @@ urlpatterns = patterns('',
     (r'^conta/', include('contas.urls')),
     (r'^boleto/', include('boleto.urls')),#inseria midia propria -->url(r'imagem_barras/$', imagem_barras, name='imagem_barras'),
     (r'^conta/', include('django.contrib.auth.urls')),
-
-   
+ 
 )
 
 if settings.LOCAL:

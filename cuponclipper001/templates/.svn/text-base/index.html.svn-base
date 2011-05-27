@@ -38,26 +38,19 @@
 			</div>
 		{% endfor %}
 	</div>
+
+		<div id="resultados">
+			<!-- Aqui vai aparecer o resultado da busca do usuario -->
+			{% if resultados %}
+				{% include "listar_cupons_busca.html" %}
+			{% else %}<!-- listagem dos cupons pela cidade -->
+				{% include "listar_cupons.html" %}
+			{% endif %}
+		</div>
+	
 	
 	<hr width="100%" color="black" size="2">
-	-
-	<div id="cupon_lista" class="cupon_lista">
-		<h1>Cupons normais {{ cidade_cliente }}</h1>
-		{% for cupom in cupons %}
-			<div id="cupon_lista_imagem" class="cupon_lista_imagem">
-				<a href="{{ cupom.get_absolute_url }}">
-					<img src="/media/{{ cupom.miniatura }}"  class="bn" width="60" height="60"/>			
-				</a>
-			</div>
-			<div id="cupon_lista_info" class="cupon_lista_info">
-				<a href="{{ cupom.nome  }}">
-					Disponivel: {{ cupom.num_disponivel }}<br />	
-					Porcentagem: {{ cupom.porcentagem_vendido }}	<br />	
-					Desconto: {{ cupom.desconto }}%
-				</a>
-			</div>
-		{% endfor %}
-	</div>
+	-	
 	<div id="empresa" class="empresa">
 		Texto da empresa
 		<div id="video_empresa" class="video_empresa">

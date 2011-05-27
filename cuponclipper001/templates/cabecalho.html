@@ -40,22 +40,10 @@
     				<a href="/agende">Agende uma visita</a>
     		</span> |
 		    <div id="busca" >
-				<form id="search-form" method="get" action=".">{% csrf_token %} 
+				<form id="search-form" method="get" action="{% url buscar cidade_cliente %}">{% csrf_token %} 
 					{{ form_busca }}
 					<input type="submit" value="Buscar" />
 				</form>
 			</div>
 	</div>
-	
-	{% if email_cadastrado %}
-		EMail cadastrado
-	{% else %}
-		<div id="email" >
-				<form id="email-form" method="GET" action=".">{% csrf_token %} 
-					{{ form_email }}
-					<input type="submit" value="Cadastrar" />
-				</form>
-			</div>
-			
-	{% endif %}
-	</div>
+</div>
