@@ -1,0 +1,7 @@
+<a href="{% url home_catalogo %}">Home</a>
+	{% with flatpage_list as paginas %}
+		{% for page in pages %}
+			<a href="{{ paginas.url }}">{{ paginas.title }}</a>
+		{% endfor %}
+	{% endwith %}
+<a href="{% url show_carrinho %}">Carrinho de Compras</a>

@@ -18,8 +18,6 @@ def index(request):
     return HttpResponseRedirect(settings.DEFAULT_CITY_SLUG)
 
 def cidade_index(request, cidade_slug):
-#    up = MeuUser(username=request.user)
-#    nome = up.username
     usuario=request.user
     cidade = get_object_or_404(Localizacao, slug=cidade_slug,ativo=True)
     cidades_disponiveis = Localizacao.objects.filter(ativo=True)
@@ -32,15 +30,7 @@ def cidade_index(request, cidade_slug):
            
     #BUSCA FORM_BUSCA
     form_busca = FormBuscar()
-#    cupons_busca_titulo = []
-#    resultados = False
-#    if 'query' in request.GET:
-#        resultados = True
-#        query = request.GET['query'].strip()
-#        if query:
-#            form_busca = FormBuscar({'query' : query})#Usado para manter o valor do campo no formulario quando atualizar
-#            cupons_busca_titulo = Cupon.objects.filter(titulo__icontains=query)[:10]
-            
+          
     #EMAIL FORM_EMAIL
     form_email = FormCadEmail()
     email_cadastrado = False  
@@ -55,18 +45,6 @@ def cidade_index(request, cidade_slug):
                 cad_email.cidade = cidade_cliente
                 cad_email.save()
                 email_cadastrado = True
-            
-            
-#    elif 'email' in request.GET:
-#        form_email = FormCadEmail(request.GET)
-#        if form_email.is_valid():
-#           cd = form_email.cleaned_data
-#           print (email_cadastrado)
-#           print "email"
-#           email_cadastrado = True
-#           cad_email=Cadastra_Email()
-#           cad_email.email = cd.get('email')
-#           cad_email.save()
    
     context = {'cidade_cliente': cidade_cliente,
                'form_busca':form_busca,
@@ -95,11 +73,20 @@ def buscar(request,cidade_slug):
             form_busca = FormBuscar({'query' : query})#Usado para manter o valor do campo no formulario quando atualizar
             cupons_busca_titulo = Cupon.objects.filter(titulo__icontains=query)[:10]
     
+  
+    mat=[]
+ 
+    for cidade in cidades_disponiveis:
+        qtd_cupons = Cupon.objects.filter(cidade=cidade,ativo=True).count()
+        mat.append(str(qtd_cupons))
+    
     context = {'form_busca':form_busca,
                'cupons_busca_titulo': cupons_busca_titulo,
                'cidade_cliente': cidade_cliente,              
                'usuario' : usuario,
-               'cidades_disponiveis': cidades_disponiveis,}
+               'cidades_disponiveis': cidades_disponiveis,
+               'mat':mat,
+               }
 
     return render_to_response('oferta/buscar.html', context, context_instance=RequestContext(request))
      
@@ -294,35 +281,3 @@ def _cidade_cliente(request):
     return cidade_cliente
 
 
-   
-#    #EMAIL FORM_EMAIL
-#    form_email = FormCadEmail()
-#    email_cadastrado = False       
-#    if request.method == 'POST':
-#        postdata = request.POST.copy()
-#        form_email = FormCadEmail(postdata)
-#        if form_email.is_valid():
-#            cd = form_email.cleaned_data
-#            print (email_cadastrado)
-#            print "email"
-#            email_cadastrado = True
-#            cad_email=Cadastra_Email()
-#            cad_email.email = cd.get('email')
-#            cad_email.cidade = cidade_cliente
-#            cad_email.save()
-#
-#
-#
-#if request.method == 'POST':
-#        postdata = request.POST.copy()
-#        form_email = FormCadEmail(postdata)
-#        if form_email.is_valid():
-#            cd = form_email.cleaned_data
-#            print (email_cadastrado)
-#            print "email"
-#            email_cadastrado = True
-#            cad_email=Cadastra_Email()
-#            cad_email.email = cd.get('email')
-#            cad_email.cidade = cidade_cliente
-#            cad_email.save()
-            

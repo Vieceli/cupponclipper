@@ -26,7 +26,7 @@ class CuponAdquiridoAdmin(admin.ModelAdmin):
     
 class CuponAdmin(admin.ModelAdmin):
     """admin class"""
-    list_display = ['titulo', 'anunciante', 'ativo',]
+    list_display = ['titulo', 'anunciante', 'ativo','cidade']
     list_filter = ('titulo', 'anunciante','ativo')
     list_per_page = 100
     search_fields = ['titulo', 'anunciante','ativo'] 

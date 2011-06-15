@@ -5,6 +5,7 @@
 {% endblock %}
 {% block extracss %}
 	{{ block.super }}
+	
 {% endblock %}
 
 {% block extrascripts %}
@@ -15,6 +16,7 @@
 {% block extrajs %}
 	{{ block.super }}
 {% endblock extrajs %}
+
 
 {% block conteudo %}
 <div id="conteudo" class="conteudo">
@@ -35,8 +37,19 @@
 					</a>
 				</div>
 			{% endfor %}
-			
-			<!-- sugestoes de busca -->
+		<br />
+		<hr />
+		<div id="cidade">
+			{% for j in cidades_disponiveis %}
+					<a href="/cupons/{{ j }}"> {{ j }}</a><br />
+			{% endfor %}
+		</div>
+		
+		<div id="quantidade"> 
+			{% for i in mat %}
+				{{ i }}  
+			{% endfor %}
+		</div>
 			
 		</div>
 {% endblock conteudo %}

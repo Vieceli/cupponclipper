@@ -1,0 +1,24 @@
+<ul id="locais_busca">
+ao mundo
+{{ num_cupons }}
+	{% for i in num_cupons %}
+		quantidade: {{ i }}
+	{% endfor %}
+	
+	{% for i in cidades_cupons %}
+		Cidades: {{ i }}
+		 
+	{% endfor %}
+	
+	{% with num_cupons as nc %}
+		{% for l in nc %}
+			<li>
+				<a href="/ofertas/{{ l.cidade }}" class="categoria">{{ l.cidade }}</a><br />
+			
+			</li>
+
+		{% endfor %}
+
+	{% endwith %}
+	
+</ul>
