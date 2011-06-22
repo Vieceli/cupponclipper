@@ -320,6 +320,12 @@ div.error-msg {
 
 </div>
 {% endcomment %}
+<!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+<form target="pagseguro" action="https://pagseguro.uol.com.br/v2/checkout/payment.html" method="post">
+<input type="hidden" name="code" value="5415C7F6A0A0985114CD7F8185B78167" />
+<input type="image" src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/pagamentos/209x48-comprar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+</form>
+<!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
   <input type="submit"  value="Finalizar Minha compra" alt="Finalizar Minha compra" id="buy"  name="finaliza_compra"/>
   <a style="margin-left: 80px;" href="http://www.massivecoupon.com/">Não Obrigado.</a>
 
