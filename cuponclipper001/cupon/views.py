@@ -13,6 +13,7 @@ from django.contrib.auth.models import User
 from cuponclipper001.contas.models import MeuUser
 from django.contrib.auth import authenticate
 from django.contrib.auth.views import login
+from cuponclipper001.pagseguro.pagseguro import Pagseguro
 
 def index(request):
     return HttpResponseRedirect(settings.DEFAULT_CITY_SLUG)
@@ -149,6 +150,8 @@ def cupon_checkout(request, cidade_slug, cupon_slug):
     except:
         return HttpResponseRedirect('/')
 
+
+    
     must_login_error = False
     must_login_email = None
     maximo = cupon.qtd_ofertas_por_pessoa # maxima quantidade para cada cliente
@@ -156,18 +159,22 @@ def cupon_checkout(request, cidade_slug, cupon_slug):
     lista = [(str(i), i) for i in maximo]  # transforma numa lista de dicionarios
     if request.method == 'POST': # If the form has been submitted...
         form = OfertaCheckoutForm(request.POST,lista=lista)
-
+        print request.user.is_authenticated()
         # Se o usuario nao estiver autenticado
         if not request.user.is_authenticated():
             try:
-                user = MeuUser.objects.get(email=request.POST['email'])
+                user = MeuUser.objects.get(email=request.POST.get('username', ''))
+                usuario = authenticate(username=user.email, password=request.POST.get('password', ''))
+                print "Usuario: "+user
                 must_login_error = True
                 must_login_email = request.POST['email']
+                print "must_login_email"+must_login_email
                 form = OfertaCheckoutForm(lista=lista)
                 user_msg = 'A conta existe: ' + user.email  + '. Efetue Login.'
-              
-            except:
+                print "Usuario: "+user_msg
+            except Exception as erro:
                 #return HttpResponseRedirect('/')
+                print 'My exception occurred, value:', erro
                 pass
                 
         else:
@@ -203,9 +210,16 @@ def cupon_checkout(request, cidade_slug, cupon_slug):
                     pass
 
         quantidade = int(request.POST.get('quantidade', ''))#pega o conteudo pelo nome do elemento dom
+        #o preco do cupon nao eh lido pelo ajax
         print quantidade
         preco_total = quantidade * cupon.valor_desconto
-
+        
+#        carrinho = Pagseguro(email_cobranca='pagseguro@visie.com.br',tipo='CP')
+#        carrinho.item(id=1, descr='Um produto de exemplo', quant=5, valor=10)
+#        carrinho.item(id=2, descr='Outro produto de exemplo', quant=2, valor=100)
+#        print carrinho.mostra()
+        
+        #token=7FCE5D68A80346CF8713F3A4E27D3CF8
     else:
         form = OfertaCheckoutForm(lista=lista)
         usuario=request.user

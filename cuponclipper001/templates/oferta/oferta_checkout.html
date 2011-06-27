@@ -98,12 +98,12 @@ div.error-msg {
         return s;
     }
 
-   /* <!-- function update_estimated_quote()
+ 	function update_estimated_quote()
     {
       var total = 0;
 
-      if( parseInt( $("#id_quantity").val() ) > 0 ) {
-        total = parseFloat( {{ oferta.preco_oferta }} * parseInt($("#id_quantity").val()) ) ;
+      if( parseInt( $("#id_quantidade").val() ) > 0 ) {
+        total = parseFloat( {{ cupon.valor_desconto }} * parseInt( $("#id_quantidade").val() ) );
       }
 
       $('#id_estimate').html('R$ ' + CurrencyFormatted(total));
@@ -113,8 +113,8 @@ div.error-msg {
     function submitForm(form)
     {
       $.Watermark.HideAll();
-    } -->
- */
+    }
+
  function mostra_login(){
   		 $('#login').load('/conta/login/', function(resp){
   		 		$('#right').html(resp);
@@ -144,25 +144,20 @@ div.error-msg {
             }
   	
     $(document).ready(function(){
-    
-    
-/* 
- <!--      $("#id_quantity").keyup(function(){
+	    $("#id_quantidade").keyup(function(){
         update_estimated_quote();
       });
 
       update_estimated_quote();
 
-      // Setup hint tooltips and error messages
       {% for f in form %}
       {% if f.help_text %}showHint('#{{ f.auto_id }}', '{{ f.help_text }}');{% endif %}
       {% endfor %} -->
-      
-       */
+
         $(document).ajaxError(function(resp, xhr, settings){
-        			alert('Teste!');
+
                     if (settings.url == '/conta/login/') {
-                        alert('Voce logou!');
+
                         $('#login').find('form').fadeOut();
                         $('#login').html('Você está logado!');
                     }
@@ -208,12 +203,12 @@ div.error-msg {
                    <tr height="1" width="100%" background="/media/images/blue-pixel.png"><td colspan="4" height="1"></td></tr>
                    <tr style="font-size: 130%; font-weight: bold; ">
        
-                      <td style="height: 50px;">{{ oferta.anunciante }}</td>
+                      <td style="height: 50px;">{{ cupon.anunciante }}</td>
                       <td style="text-align: center;">
                       	{{ form.quantidade }}
                       </td>
                       <td style="text-align: center;"> 
-                      	x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ oferta.preco_oferta }}
+                      	x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ cupon.preco_oferta }}
                       </td>
                       <td style="text-align: center;">
                       	<span id="id_estimate" style="color: #000; font-size: 170%;">R$ 0.00</span>
@@ -250,13 +245,7 @@ div.error-msg {
         </div>
     {% endif %}
 
-    {% if form.errors %}
-        <div class="error-box">
-            <div class="title">Existem erros no seu formulario confira abaixo:</div>
-            
-            <div>{{ form.errors }} Por favor corrija os erros abaixo.</div>
-        </div>
-    {% endif %}
+
 
   <div class="clearfix">
     <div style="font-weight: bold; font-size: 120%; margin-bottom: 10px;">Informações Pessoais</div>

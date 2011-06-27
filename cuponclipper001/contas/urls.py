@@ -15,6 +15,7 @@ urlpatterns = patterns('cuponclipper001.contas.views',
 #					
 #	r'^order_details/(?P<order_id>[-\w]+)/$', 'order_details', 
 #	 	{'template_name': 'registration/order_details.html'}, 'order_details'),
+#	(r'^login/$', 'mylogin',{'SSL': settings.ENABLE_SSL }, 'login'),
 )
 
 urlpatterns += patterns('django.contrib.auth.views',

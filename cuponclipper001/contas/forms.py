@@ -13,6 +13,11 @@ from django.core.exceptions import MultipleObjectsReturned
 from django.core.validators import EMPTY_VALUES
 #from django.core.mail.message import BadHeaderError
 
+class LoginForm(forms.Form):
+    username = forms.CharField(max_length=100)
+    password = forms.CharField(widget=forms.PasswordInput(),max_length=100)
+
+
 class FormularioRegistro(forms.Form):
 #class FormularioRegistro(UserCreationForm):        
     #user = forms.CharField(label=u'Usuario', max_length=30)
@@ -70,4 +75,5 @@ class FormularioRegistro(forms.Form):
                     fail_silently=False
                     )
             except :
-                print("Erro") 
+                print("Erro")
+
