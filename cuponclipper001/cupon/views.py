@@ -163,15 +163,15 @@ def cupon_checkout(request, cidade_slug, cupon_slug):
         # Se o usuario nao estiver autenticado
         if not request.user.is_authenticated():
             try:
-                user = MeuUser.objects.get(email=request.POST.get('username', ''))
-                usuario = authenticate(username=user.email, password=request.POST.get('password', ''))
-                print "Usuario: "+user
+                #user = MeuUser.objects.get(email=request.POST.get('username', ''))
+                usuario = authenticate(username=request.POST.get('username', ''), password=request.POST.get('password', ''))
+                print usuario
                 must_login_error = True
                 must_login_email = request.POST['email']
-                print "must_login_email"+must_login_email
+                
                 form = OfertaCheckoutForm(lista=lista)
-                user_msg = 'A conta existe: ' + user.email  + '. Efetue Login.'
-                print "Usuario: "+user_msg
+                user_msg = 'A conta existe: ' + usuario.email  + '. Efetue Login.'
+
             except Exception as erro:
                 #return HttpResponseRedirect('/')
                 print 'My exception occurred, value:', erro
