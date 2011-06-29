@@ -120,6 +120,11 @@ div.error-msg {
   		 		$('#right').html(resp);
   		} );
   		};
+//<!--   	changeAction(url) {
+//    	document.this_form.action = 
+//	} -->
+	
+
   		
   	function aplicar_eventos() {
                 $('#loginform').submit(function(){
@@ -172,7 +177,25 @@ div.error-msg {
 
   });
   	
- 
+
+	
+	function onsubmitform()
+	{
+	  if(document.pressed == 'PagSeguro')
+	  {
+	   document.cupon_checkout.action ="https://pagseguro.uol.com.br/v2/checkout/payment.html";
+	  }
+	  else
+	  if(document.pressed == 'PagamentoDigital')
+	  {
+	     document.cupon_checkout.action="https://www.pagamentodigital.com.br/checkout/pay/";
+	  }
+	  if(document.pressed == 'PayPal')
+	  {
+	    document.cupon_checkout.action ="";
+	  }
+	  return true;
+	}
 
 {% endblock extrajs %}
 
@@ -187,55 +210,55 @@ div.error-msg {
               <div class="box-t"></div>
               <div class="box-c" style="height: 118px; padding-top: 0px;">
 
-                <form  class="dealcheckoutform" id="id_dealcheckoutform" method="POST" >{% csrf_token %} 
-
-                <h2 style="margin-top: 0px;">Sua compra</h2>
-                <a href="#main-nav" class="accessibility">Voltar a navegar</a>
-
-                <div>
-                  <table>
-                   <tr style="font-size: 110%; font-weight: bold; color: #555;">
-                      <td style="height: 25px; width: 300px;">Descrição</td>
-                      <td style="width: 100px; text-align: center;">Quantidade</td>
-                      <td style="width: 150px; text-align: center;">Preço</td>
-                      <td style="width: 150px; text-align: center;">Total</td>
-                   </tr>
-                   <tr height="1" width="100%" background="/media/images/blue-pixel.png"><td colspan="4" height="1"></td></tr>
-                   <tr style="font-size: 130%; font-weight: bold; ">
-       
-                      <td style="height: 50px;">{{ cupon.anunciante }}</td>
-                      <td style="text-align: center;">
-                      	{{ form.quantidade }}
-                      </td>
-                      <td style="text-align: center;"> 
-                      	x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ cupon.preco_oferta }}
-                      </td>
-                      <td style="text-align: center;">
-                      	<span id="id_estimate" style="color: #000; font-size: 170%;">R$ 0.00</span>
-                      </td>User signup coming soon!
-                   </tr>
-                   <tr height="1" width="100%" background="/media/images/blue-pixel.png"><td colspan="4" height="1"></td></tr>
-                  </table>
-                </div>
-
-                <img style="margin-top: 10px; width: 160px; float: right;" src="/media/images/securepaypal.jpg">
-              </div>
-              <div class="box-b"></div>
-            </div>
+               <!--  <form  class="dealcheckoutform" id="id_dealcheckoutform" action="https://pagseguro.uol.com.br/v2/checkout/payment.html" method="POST" >{% csrf_token %}  -->
+					<form  class="dealcheckoutform" id="id_dealcheckoutform" name="cupon_checkout" action="" method="POST" onsubmit="return onsubmitform();">{% csrf_token %} 
+			                <h2 style="margin-top: 0px;">Sua compra</h2>
+			                <a href="#main-nav" class="accessibility">Voltar a navegar</a>
+			
+			                <div>
+			                  <table>
+			                   <tr style="font-size: 110%; font-weight: bold; color: #555;">
+			                      <td style="height: 25px; width: 300px;">Descrição</td>
+			                      <td style="width: 100px; text-align: center;">Quantidade</td>
+			                      <td style="width: 150px; text-align: center;">Preço</td>
+			                      <td style="width: 150px; text-align: center;">Total</td>
+			                   </tr>
+			                   <tr height="1" width="100%" background="/media/images/blue-pixel.png"><td colspan="4" height="1"></td></tr>
+			                   <tr style="font-size: 130%; font-weight: bold; ">
+			       
+			                      <td style="height: 50px;">{{ cupon.anunciante }}</td>
+			                      <td style="text-align: center;">
+			                      	{{ form.quantidade }}
+			                      </td>
+			                      <td style="text-align: center;"> 
+			                      	x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ cupon.valor_desconto }}
+			                      </td>
+			                      <td style="text-align: center;">
+			                      	<span id="id_estimate" style="color: #000; font-size: 170%;">R$ 0.00</span>
+			                      </td>User signup coming soon!
+			                   </tr>
+			                   <tr height="1" width="100%" background="/media/images/blue-pixel.png"><td colspan="4" height="1"></td></tr>
+			                  </table>
+			                </div>
+			
+			                <img style="margin-top: 10px; width: 160px; float: right;" src="/media/images/securepaypal.jpg">
+			              </div>
+			              <div class="box-b"></div>
+			            </div>
 
 
 						<div class="box">
 							<div class="box-t"></div>
 							<div class="box-c" style="padding-top: 0px;">
 								<h1>Pagamento <img style="margin-top: 10px;" src="/media/images/lock-icon.png"></h1>
-                <p>Sua compra será processada no máximo em 24 horas</p>
-								<a href="#main-nav" class="accessibility">Volta a navegação</a>
-		{% if usuario.username %}
-			<p>Bem Vindo {{ usuario.username  }}!</p>
-		{% else %}
-			<p>Bem vindo! 
-			Você precisa efetuar <a href="/conta/login/">login</a>
-			Para fazer compras.</p>
+			                <p>Sua compra será processada no máximo em 24 horas</p>
+											<a href="#main-nav" class="accessibility">Volta a navegação</a>
+							{% if usuario.username %}
+								<p>Bem Vindo {{ usuario.username  }}!</p>
+							{% else %}
+								<p>Bem vindo! 
+								Você precisa efetuar <a href="/conta/login/">login</a>
+								Para fazer compras.</p>
 		
 	<div>
 
@@ -309,17 +332,42 @@ div.error-msg {
 
 </div>
 {% endcomment %}
+
+<input type="hidden" name="email_cobranca" value="jhoni@clippermagazine.com.brr">
+<input type="hidden" name="tipo" value="CP">
+<input type="hidden" name="moeda" value="BRL">
+
+<input type="hidden" name="{{ cupon.id }}" value="{{ cupon.id }}">
+<input type="hidden" name="{{ cupon.subtitulo }} " value="{{ cupon.id }}">
+<input type="hidden" name="{{ cupon.qtd_ofertas_adquiridas }}" value="{{  cupon.qtd_ofertas_adquiridas }}">
+<input type="hidden" name="{{ cupon.preco_total }}" value="{{ preco_total }}">
+
+
+<!-- INÍCIO DOS DADOS DO USUÁRIO -->
+<input type="hidden" name="cliente_nome" 
+value="{{ usuario.username }}">
+<input type="hidden" name="{{ cidade_cliente }}" 
+value="Cidade do cliente">
+<input type="hidden" name="cliente_tel" value="{{ usuario.telefone }}">
+<input type="hidden" name="cliente_email" value="{{ usuario.email }}">
+<!-- FIM DOS DADOS DO USUÁRIO -->
+<input type="hidden" name="code" value="5415C7F6A0A0985114CD7F8185B78167" />
+
+
 <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
-<form target="pagseguro" action="https://pagseguro.uol.com.br/v2/checkout/payment.html" method="post">
-	<input type="hidden" name="code" value="5415C7F6A0A0985114CD7F8185B78167" />
-	<input type="image" src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/pagamentos/209x48-comprar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
-</form>
+<!-- <form target="pagseguro" action="https://pagseguro.uol.com.br/v2/checkout/payment.html" method="post"> -->
+	
+	<!-- <input type="image" src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/pagamentos/209x48-comprar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" onClick="submitForm(this.form);" />
+</form> -->
+
+<!--   <input type="submit"  value="Finalizar Minha compra" alt="Finalizar Minha compra" id="buy"  name="finaliza_compra"/> -->
+<!--   <a style="margin-left: 80px;" href="http://www.massivecoupon.com/">Não Obrigado.</a> -->
+
+<input type="submit" name="operation" onclick="document.pressed=this.value" value="PagSeguro" />
+<input type="submit" name="operation" onclick="document.pressed=this.value" value="Boleto" />
+<input type="submit" name="operation" onclick="document.pressed=this.value" value="PayPal" />
 <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
-  <input type="submit"  value="Finalizar Minha compra" alt="Finalizar Minha compra" id="buy"  name="finaliza_compra"/>
-  <a style="margin-left: 80px;" href="http://www.massivecoupon.com/">Não Obrigado.</a>
 
-
-</form>
 
 
 </div>
@@ -375,5 +423,5 @@ div.error-msg {
        
 			
 		</div> <!-- end main -->
-	
+</form>
 {% endblock conteudo %}	

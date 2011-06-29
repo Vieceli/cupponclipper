@@ -1,6 +1,6 @@
 # Create your views here.
 # -*- coding: utf-8 -*-
-from django.http import HttpResponseRedirect, Http404
+from django.http import HttpResponseRedirect, Http404, HttpResponse
 from cuponclipper001 import settings
 from django.shortcuts import get_object_or_404, render_to_response
 from cuponclipper001.cupon.models import Localizacao, Cupon, Cupon_Adquirido,STATUS_EM_ESPERA, Cadastra_Email
@@ -14,6 +14,8 @@ from cuponclipper001.contas.models import MeuUser
 from django.contrib.auth import authenticate
 from django.contrib.auth.views import login
 from cuponclipper001.pagseguro.pagseguro import Pagseguro
+from cuponclipper001.paypalxpress.driver import PayPal
+from django.views.generic.simple import direct_to_template
 
 def index(request):
     return HttpResponseRedirect(settings.DEFAULT_CITY_SLUG)
@@ -24,7 +26,8 @@ def cidade_index(request, cidade_slug):
     cidades_disponiveis = Localizacao.objects.filter(ativo=True)
     cupons = Cupon.objects.filter(cidade=cidade,ativo=True)[:8] 
     destaque = Cupon.objects.filter(cidade=cidade,ativo=True,destaque=True)[:4]   
-    cidade_cliente=_cidade_cliente(request)
+      #cidade_cliente=_cidade_cliente(request)
+    cidade_cliente='goiania'
 
     meta_keywords = settings.META_KEYWORDS
     meta_description = settings.META_DESCRIPTION
@@ -62,7 +65,8 @@ def cidade_index(request, cidade_slug):
 
 def buscar(request,cidade_slug):
     usuario=request.user
-    cidade_cliente=_cidade_cliente(request)
+    #cidade_cliente=_cidade_cliente(request)
+    cidade_cliente='goiania'
     cidades_disponiveis = Localizacao.objects.filter(ativo=True)
     
     #BUSCA FORM_BUSCA
@@ -95,7 +99,8 @@ def cupon_detalhes(request, cidade_slug, cupon_slug):
     cidade = get_object_or_404(Localizacao, slug=cidade_slug)
     cidades_disponiveis = Localizacao.objects.filter(ativo=True)
     cupom = get_object_or_404(Cupon, slug=cupon_slug)
-    cidade_cliente=_cidade_cliente(request)
+     #cidade_cliente=_cidade_cliente(request)
+    cidade_cliente='goiania'
     
     #pega a mensagem da url
     try:
@@ -140,7 +145,8 @@ def cupon_detalhes(request, cidade_slug, cupon_slug):
 
 def cupon_checkout(request, cidade_slug, cupon_slug):
     usuario=request.user
-    cidade_cliente=_cidade_cliente(request)
+    #cidade_cliente=_cidade_cliente(request)
+    cidade_cliente='goiania'
     cidades = Localizacao.objects.filter(ativo=True)
     
     form_busca = FormBuscar()
@@ -149,14 +155,13 @@ def cupon_checkout(request, cidade_slug, cupon_slug):
         cupon = Cupon.objects.get(slug=cupon_slug)
     except:
         return HttpResponseRedirect('/')
-
-
     
     must_login_error = False
     must_login_email = None
     maximo = cupon.qtd_ofertas_por_pessoa # maxima quantidade para cada cliente
     maximo = list(range(1,maximo+1))       # transforma essa quantidade numa lista
     lista = [(str(i), i) for i in maximo]  # transforma numa lista de dicionarios
+    
     if request.method == 'POST': # If the form has been submitted...
         form = OfertaCheckoutForm(request.POST,lista=lista)
         print request.user.is_authenticated()
@@ -170,18 +175,10 @@ def cupon_checkout(request, cidade_slug, cupon_slug):
                 must_login_email = request.POST['email']
                 
                 form = OfertaCheckoutForm(lista=lista)
-                user_msg = 'A conta existe: ' + usuario.email  + '. Efetue Login.'
 
             except Exception as erro:
                 #return HttpResponseRedirect('/')
                 print 'My exception occurred, value:', erro
-                pass
-                
-        else:
-            user = request.user
-        #if not must_login_error and form.is_valid():
-#        quantidade = request.POST.get('quantidade', '')
-#        print quantidade
         if not must_login_error and form.is_valid():
             cd = form.cleaned_data
             if not request.user.is_authenticated():
@@ -211,19 +208,28 @@ def cupon_checkout(request, cidade_slug, cupon_slug):
 
         quantidade = int(request.POST.get('quantidade', ''))#pega o conteudo pelo nome do elemento dom
         #o preco do cupon nao eh lido pelo ajax
+        print "quantidade"
         print quantidade
-        preco_total = quantidade * cupon.valor_desconto
-        
-#        carrinho = Pagseguro(email_cobranca='pagseguro@visie.com.br',tipo='CP')
-#        carrinho.item(id=1, descr='Um produto de exemplo', quant=5, valor=10)
-#        carrinho.item(id=2, descr='Outro produto de exemplo', quant=2, valor=100)
-#        print carrinho.mostra()
-        
-        #token=7FCE5D68A80346CF8713F3A4E27D3CF8
+        cupon.qtd_ofertas_adquiridas = quantidade 
+        cupon.preco_total = quantidade * cupon.valor_desconto
+        print "cupon.preco_total"
+        print cupon.preco_total
+
+        p = PayPal() 
+        #rc = p.SetExpressCheckout(preco_total, "BRL", "http://www.clippermagazine.com.br/" + cupon.slug + "/" + str(quantidade) + 
+#        #                          "/cupons/"+cidade_cliente+"/"+cupon.slug+"/comprar/sucesso/", "http://www.massivecoupon.com/", PAYMENTACTION="Authorization")
+        rc = p.SetExpressCheckout(cupon.preco_total, "BRL", "http://www.clippermagazine.com.br/" + 
+                                  "/cupons/"+cidade_cliente+"/"+cupon.slug+ cupon.qtd_ofertas_adquiridas + "/comprar/sucesso/", "http://www.massivecoupon.com/", PAYMENTACTION="Authorization")
+#
+        if rc:
+            token = p.api_response['TOKEN'][0]
+            return HttpResponseRedirect( p.paypal_url() )
+        else:
+            return HttpResponseRedirect('/checkout/error') 
+
     else:
         form = OfertaCheckoutForm(lista=lista)
         usuario=request.user
-
 
     return render_to_response(
                 'oferta/oferta_checkout.html',{
@@ -238,8 +244,11 @@ def cupon_checkout(request, cidade_slug, cupon_slug):
                 'usuario' : usuario,
               }, context_instance=RequestContext( request ) )
 
-def cupon_checkout_complete(request, cupon_slug, quantidade):
-
+def cupon_checkout_complete(request, cidade_slug, cupon_slug, quantidade):
+    usuario=request.user
+    cidade_cliente=_cidade_cliente(request)
+    cidades = Localizacao.objects.filter(ativo=True)
+    
     user_msg = ""
     quantidade = int(quantidade)
 

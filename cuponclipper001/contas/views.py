@@ -45,6 +45,73 @@ def registro(request, template_name="registration/registro.html"):
 @login_required
 def logout_page(request):
     logout(request)
+    
+def user_login(request):
+    cidades_disponiveis = Localizacao.objects.filter(ativo=True)
+
+    if request.method == 'POST': # If the form has been submitted...
+        form = LoginForm(request.POST)
+
+        if form.is_valid():
+            cd = form.cleaned_data
+
+            login(request, form.user)
+
+            return HttpResponseRedirect('/')
+
+    else:
+        initial_data = {}
+        form = LoginForm(initial=initial_data)
+
+    return render_to_response('user_login.html', {
+                'form' : form,
+                'cities' : cities,
+              }, context_instance=RequestContext( request ) )
+
+def user_signup(request):
+    cidades_disponiveis = Localizacao.objects.filter(ativo=True)
+
+    if request.method == 'POST': # If the form has been submitted...
+        form = SignupForm(request.POST)
+
+        if form.is_valid():
+            cd = form.cleaned_data
+
+            user = User()
+            user.username = cd.get('email')  #str(uuid.uuid4())[:30]
+            user.first_name = cd.get('full_name')
+            user.email = cd.get('email')
+            user.save()
+            user.set_password( cd.get('password') )
+            user.save()
+
+            user = authenticate(username=user.username, password=cd.get('password'))
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    # Redirect to a success page.
+                else:
+                    pass
+                    # Return a 'disabled account' error message
+            else:
+                # Return an 'invalid login' error message.
+                pass
+
+            return HttpResponseRedirect('/')
+
+    else:
+        initial_data = {}
+        form = SignupForm(initial=initial_data)
+
+    return render_to_response('user_signup.html', {
+                'form' : form,
+                'cities' : cities,
+              }, context_instance=RequestContext( request ) )
+
+
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect('/')
 
 @login_required 
 def minha_conta(request,template_name="registration/minha_conta.html"):

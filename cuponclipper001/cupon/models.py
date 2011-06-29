@@ -129,8 +129,9 @@ class Cupon(models.Model):
 
     categoria                = models.ForeignKey(Categoria)
     
-    valor_real               = models.DecimalField(decimal_places=2, max_digits=6, help_text='Valor de base para a Oferta',default=100)#default=0,
+    valor_real               = models.DecimalField(decimal_places=2, max_digits=6, help_text='Valor de base para a Oferta em Reais' ,default=100)#default=0,
     valor_desconto           = models.DecimalField(decimal_places=2, max_digits=6, help_text='Valor do desconto em Reais',default=20)#default=0,
+    preco_total              = models.DecimalField(decimal_places=2, max_digits=6, help_text='Valor total do cupon comprado',default=80)#default=0,)
     
     destaque                 = models.BooleanField(default=False, db_index=True)
     ativo                    = models.BooleanField(default=True, db_index=True)    
@@ -247,6 +248,7 @@ class Cupon_Adquirido(models.Model):
     usuario                = models.ForeignKey(User)
     cupon                  = models.ForeignKey(Cupon)
     status                 = models.IntegerField(choices=STATUS, default=0, db_index=True)
+    preco_total            = models.DecimalField(decimal_places=2, max_digits=6, help_text='Valor total do cupon comprado',default=100)#default=0,)
     data_entrada           = models.DateTimeField(blank=True, editable=False, null=True, auto_now_add=True)
     data_modificacao       = models.DateTimeField(blank=True, editable=False, null=True, auto_now=True)
     data_exclusao          = models.DateTimeField(blank=True, editable=False, null=True)
